@@ -3,6 +3,8 @@ import React, { useRef, useEffect, useState } from 'react';
 import mapboxgl from "mapbox-gl";
 
 mapboxgl.accessToken ="pk.eyJ1IjoicnVnZXh1IiwiYSI6ImNsMTJwbWU0cTAxMGwzZXYwMjhtMzR5ZHcifQ.qX_ys7QA-VaSeqDIeGefGA";
+// eslint-disable-next-line import/no-webpack-loader-syntax
+mapboxgl.workerClass = require("worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker").default;
 
 const InteractiveMap = () => {
 
