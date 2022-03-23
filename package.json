@@ -41,6 +41,7 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^3.2.3"
+    "gh-pages": "^3.2.3",
+    "worker-loader": "^3.0.8"
   }
 }
