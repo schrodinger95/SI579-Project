@@ -1,18 +1,20 @@
 import './InteractiveMap.css';
 import React, { useRef, useEffect, useState } from 'react';
 import mapboxgl from "mapbox-gl";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 mapboxgl.accessToken ="pk.eyJ1IjoicnVnZXh1IiwiYSI6ImNsMTJwbWU0cTAxMGwzZXYwMjhtMzR5ZHcifQ.qX_ys7QA-VaSeqDIeGefGA";
 // eslint-disable-next-line import/no-webpack-loader-syntax
 mapboxgl.workerClass = require("worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker").default;
 
-const InteractiveMap = () => {
+const InteractiveMap = (props) => {
 
     const mapContainer = useRef(null);
     const map = useRef(null);
     const [lng, setLng] = useState(155);
     const [lat, setLat] = useState(30);
     const [zoom, setZoom] = useState(1);
+    const places = props.places;
 
     useEffect(() => {
         if (map.current) return; // initialize map only once
@@ -36,14 +38,32 @@ const InteractiveMap = () => {
     useEffect(() => {
         if (!map.current) return;
         map.current.on('load', () => {
-            map.current.loadImage(
-                'https://docs.mapbox.com/mapbox-gl-js/assets/washington-monument.jpg',
-                (error, image) => {
-                    if (error) throw error;
+            places.forEach((placeInstance) => {
+                map.current.loadImage(
+                    placeInstance.image_link,
+                    (error, image) => {
+                        if (error) throw error;
 
-                    map.current.addImage('placeImage', image);
+                        map.current.addImage(placeInstance.image_name, image);
+                    }
+                );
+            });
+
+            const features = places.map(function (placeInstance) {
+                return {
+                    'type': 'Feature',
+                    'properties': {
+                        'description':
+                            `<div class = "modal-dialog" ><h2>${placeInstance.place_name}</h2><br/><br/>` +
+                            `<a href="${placeInstance.router}" class ="btn btn-primary" style="pointer-events:auto">ENTER</a></div>`,
+                        'icon': placeInstance.image_name
+                    },
+                    'geometry': {
+                        'type': 'Point',
+                        'coordinates': placeInstance.coordinates
+                    }
                 }
-            );
+            });
 
             map.current.addSource('places', {
                 // This GeoJSON contains features that include an "icon"
@@ -52,23 +72,10 @@ const InteractiveMap = () => {
                 'type': 'geojson',
                 'data': {
                     'type': 'FeatureCollection',
-                    'features': [
-                        {
-                            'type': 'Feature',
-                            'properties': {
-                                'description':
-                                    '<strong>This is a title</strong>' +
-                                    '<button>Button</button>',
-                                'icon': 'placeImage'
-                            },
-                            'geometry': {
-                                'type': 'Point',
-                                'coordinates': [-77.043444, 38.909664]
-                            }
-                        }
-                    ]
+                    features: features
                 }
             });
+
             // Add a layer showing the places.
             map.current.addLayer({
                 'id': 'places',
@@ -114,7 +121,8 @@ const InteractiveMap = () => {
     });
 
     return (
-        <div className="map-container">
+        <div className="map-container ">
+            <h1>Travel through the map</h1>
             <div className="sidebar">
                 Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
             </div>
