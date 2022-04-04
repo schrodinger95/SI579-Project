@@ -1,15 +1,16 @@
 import React from 'react';
 import {HashRouter, Route, Routes} from 'react-router-dom';
 import App from '../App';
-import washintonBanner from '../images/washinton.jpeg';
 import ThreeScene from "./ThreeScene";
 import PlaceInstace from "./PlaceInstace";
+import washintonIcon from '../images/washington-icon.png';
+import washintonBanner from '../images/washinton.jpeg';
 
 const BasicRoute = () => {
     const places = [
         {
             place_name: 'Washinton',
-            image_link: 'https://docs.mapbox.com/mapbox-gl-js/assets/washington-monument.jpg',
+            icon: washintonIcon,
             image_name: 'washintonImage',
             coordinates: [-77.043444, 38.909664],
             router: '/washinton',
@@ -17,7 +18,7 @@ const BasicRoute = () => {
         },
         {
             place_name: 'Test',
-            image_link: 'https://docs.mapbox.com/mapbox-gl-js/assets/washington-monument.jpg',
+            icon: washintonIcon,
             image_name: 'testImage',
             coordinates: [77.043444, 38.909664],
             router: '/test',

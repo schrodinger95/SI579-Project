@@ -40,7 +40,7 @@ const InteractiveMap = (props) => {
         map.current.on('load', () => {
             places.forEach((placeInstance) => {
                 map.current.loadImage(
-                    placeInstance.image_link,
+                    placeInstance.icon,
                     (error, image) => {
                         if (error) throw error;
 
