@@ -54,8 +54,8 @@ const InteractiveMap = (props) => {
                     'type': 'Feature',
                     'properties': {
                         'description':
-                            `<div class = "modal-dialog" ><h2>${placeInstance.place_name}</h2><br/><br/>` +
-                            `<a href="${placeInstance.router}" class ="btn btn-primary" style="pointer-events:auto">ENTER</a></div>`,
+                            `<div class = "modal-dialog" ><h2>${placeInstance.place_name}</h2><br/>` +
+                            `<a href="#${placeInstance.router}" class ="btn btn-primary" style="pointer-events:auto">JUMP</a></div>`,
                         'icon': placeInstance.image_name
                     },
                     'geometry': {
@@ -121,12 +121,14 @@ const InteractiveMap = (props) => {
     });
 
     return (
-        <div className="map-container ">
+        <div className="title-map-container">
             <h1>Travel through the map</h1>
-            <div className="sidebar">
-                Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
+            <div className="map-container">
+                <div className="sidebar">
+                    Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
+                </div>
+                <div className="map" ref={mapContainer}/>
             </div>
-            <div className="map" ref={mapContainer}/>
         </div>
     );
 }

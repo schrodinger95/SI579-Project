@@ -1,11 +1,11 @@
 import React from 'react';
-import {BrowserRouter, Route, Routes} from 'react-router-dom';
+import {HashRouter, Route, Routes} from 'react-router-dom';
 import App from '../App';
 import washintonBanner from '../images/washinton.jpeg';
 import ThreeScene from "./ThreeScene";
+import PlaceInstace from "./PlaceInstace";
 
 const BasicRoute = () => {
-
     const places = [
         {
             place_name: 'Washinton',
@@ -30,21 +30,46 @@ const BasicRoute = () => {
         const placesToShow = [];
         places.forEach((placeInstance, index) =>
             placesToShow.push(
-                <Route path={placeInstance.router} element={<ThreeScene banner={placeInstance.banner}/>}/>
+                <Route exact
+                       key={index}
+                       path={placeInstance.router}
+                       element={<PlaceInstace
+                           key={index}
+                           placeName={placeInstance.place_name}
+                           placeBanner={placeInstance.banner}
+                           placeID={placeInstance.id}
+                           placeRouter={placeInstance.router}
+                       />}
+                />
             )
         );
         return placesToShow;
     }
 
+    const generatePlaceScenes = () => {
+        const placeScenesToShow = [];
+        places.forEach((placeInstance, index) =>
+            placeScenesToShow.push(
+                <Route exact key={index}
+                       path={placeInstance.router + '/scene'}
+                       element={<ThreeScene
+                           banner={placeInstance.banner}
+                           router={placeInstance.router}
+                       />}
+                />
+            )
+        );
+        return placeScenesToShow;
+    }
+
     return (
-        <BrowserRouter>
+        <HashRouter>
             <Routes>
-                <Route path="/" element={<App places={places}/>}/>
+                <Route exact path="/" element={<App places={places}/>}/>
                 {generatePlaces()}
+                {generatePlaceScenes()}
             </Routes>
-            {/* 地址栏跳转传参 */}
-            {/* <Route exact path="/other/:id" component={Other}/> */}
-        </BrowserRouter>
+        </HashRouter>
     )
 };
 

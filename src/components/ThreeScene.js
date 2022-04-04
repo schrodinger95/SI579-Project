@@ -60,7 +60,19 @@ class ThreeScene extends React.Component {
 
     render () {
         return (
-            <div><a href="../" className="btn btn-primary" style={{top:0,position: 'absolute'}}>RETURN</a></div>
+            <div>
+                <a
+                    onClick={() => {
+                        console.log('clear?');
+                        const elements = document.getElementsByTagName('canvas');
+                        elements[0].remove(); // Removes the div with the 'div-02' id
+                    }}
+                    href={`#${this.props.router}`}
+                    className="btn btn-primary"
+                    style={{top:0,position: 'absolute'}}>
+                    RETURN
+                </a>
+            </div>
         )
     }
 }
