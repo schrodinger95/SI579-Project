@@ -1,7 +1,7 @@
-import './InteractiveMap.css';
 import React, { useRef, useEffect, useState } from 'react';
 import mapboxgl from "mapbox-gl";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './InteractiveMap.css';
 
 mapboxgl.accessToken ="pk.eyJ1IjoicnVnZXh1IiwiYSI6ImNsMTJwbWU0cTAxMGwzZXYwMjhtMzR5ZHcifQ.qX_ys7QA-VaSeqDIeGefGA";
 // eslint-disable-next-line import/no-webpack-loader-syntax
@@ -22,7 +22,8 @@ const InteractiveMap = (props) => {
             container: mapContainer.current,
             style: 'mapbox://styles/mapbox/streets-v11',
             center: [lng, lat],
-            zoom: zoom
+            zoom: zoom,
+            minZoom: 1,
         });
     });
 

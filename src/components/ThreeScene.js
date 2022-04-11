@@ -63,9 +63,10 @@ class ThreeScene extends React.Component {
             <div>
                 <a
                     onClick={() => {
-                        console.log('clear?');
                         const elements = document.getElementsByTagName('canvas');
-                        elements[0].remove(); // Removes the div with the 'div-02' id
+                        Array.from(elements).forEach(element => {
+                            element.remove();
+                        });
                     }}
                     href={`#${this.props.router}`}
                     className="btn btn-primary"
