@@ -2,9 +2,10 @@ import React from 'react';
 import {HashRouter, Route, Routes} from 'react-router-dom';
 import App from '../App';
 import ThreeScene from "./ThreeScene";
-import PlaceInstace from "./PlaceInstace";
-import washintonIcon from '../images/washington-icon.png';
+import PlaceInstance from "./PlaceInstance";
+import washintonIcon from '../icons/washington-icon.png';
 import washintonBanner from '../images/washinton.jpeg';
+// import icons and images here!
 
 const BasicRoute = () => {
     const places = [
@@ -14,14 +15,6 @@ const BasicRoute = () => {
             image_name: 'washintonImage',
             coordinates: [-77.043444, 38.909664],
             router: '/washinton',
-            banner: washintonBanner
-        },
-        {
-            place_name: 'Test',
-            icon: washintonIcon,
-            image_name: 'testImage',
-            coordinates: [77.043444, 38.909664],
-            router: '/test',
             banner: washintonBanner
         },
         // To add a place, simpy add a json here!
@@ -34,7 +27,7 @@ const BasicRoute = () => {
                 <Route exact
                        key={index}
                        path={placeInstance.router}
-                       element={<PlaceInstace
+                       element={<PlaceInstance
                            key={index}
                            placeName={placeInstance.place_name}
                            placeBanner={placeInstance.banner}

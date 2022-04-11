@@ -1,10 +1,7 @@
 .title-map-container{
-    width : 60%;
+    width : 80%;
     margin: auto;
-}
-
-h1 {
-    text-align: center;
+    padding: 10px;
 }
 
 .map-container {
@@ -32,6 +29,6 @@ h1 {
 }
 
 .modal-dialog{
-    width : 150px !important;
+    width : 200px !important;
     text-align: center;
 }

@@ -1,6 +1,6 @@
-import './App.css';
 import InteractiveMap from "./components/InteractiveMap";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
 
 const App = (props) => {
     const places = props.places;
