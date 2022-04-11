@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/SI579-Project/static/css/main.bfb97ce7.css",
-    "main.js": "/SI579-Project/static/js/main.b10de923.js",
+    "main.css": "/SI579-Project/static/css/main.2b0b301e.css",
+    "main.js": "/SI579-Project/static/js/main.cc697a9a.js",
     "static/js/787.e3ff3535.chunk.js": "/SI579-Project/static/js/787.e3ff3535.chunk.js",
     "static/js/mapbox-gl-csp-worker.5da6887f.worker.js": "/SI579-Project/static/js/mapbox-gl-csp-worker.5da6887f.worker.js",
     "static/media/washinton.jpeg": "/SI579-Project/static/media/washinton.c0a1f091ea1b281b42e0.jpeg",
     "static/media/washington-icon.png": "/SI579-Project/static/media/washington-icon.513e95ce3a3a31e566a7.png",
     "index.html": "/SI579-Project/index.html",
-    "main.bfb97ce7.css.map": "/SI579-Project/static/css/main.bfb97ce7.css.map",
-    "main.b10de923.js.map": "/SI579-Project/static/js/main.b10de923.js.map",
+    "main.2b0b301e.css.map": "/SI579-Project/static/css/main.2b0b301e.css.map",
+    "main.cc697a9a.js.map": "/SI579-Project/static/js/main.cc697a9a.js.map",
     "787.e3ff3535.chunk.js.map": "/SI579-Project/static/js/787.e3ff3535.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.bfb97ce7.css",
-    "static/js/main.b10de923.js"
+    "static/css/main.2b0b301e.css",
+    "static/js/main.cc697a9a.js"
   ]
 }
