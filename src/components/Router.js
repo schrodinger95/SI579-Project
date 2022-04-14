@@ -4,7 +4,11 @@ import App from '../App';
 import ThreeScene from "./ThreeScene";
 import PlaceInstance from "./PlaceInstance";
 import washintonIcon from '../icons/washington-icon.png';
-import washintonBanner from '../images/washinton.jpeg';
+import washintonBanner from '../images/washinton.jpg';
+import greatWallIcon from '../icons/great-wall-icon.png';
+import greatWallBannner from '../images/great-wall.jpg';
+import kyoto from '../images/kyoto.jpg';
+import kyotoIcon from '../icons/kyoto-icon.png';
 // import icons and images here!
 
 const BasicRoute = () => {
@@ -17,7 +21,22 @@ const BasicRoute = () => {
             router: '/washinton',
             banner: washintonBanner
         },
-        // To add a place, simpy add a json here!
+        {
+            place_name: 'The Great Wall of China',
+            icon: greatWallIcon,
+            image_name: 'greatWallImage',
+            coordinates: [108.945, 34.263],
+            router: '/greatWall',
+            banner: greatWallBannner
+        },
+        {
+            place_name: 'Kyoto',
+            icon: kyotoIcon,
+            image_name: 'kyotoImage',
+            coordinates: [135.7680, 35.0116],
+            router: '/kyoto',
+            banner: kyoto
+        }
     ];
 
     const generatePlaces = () => {

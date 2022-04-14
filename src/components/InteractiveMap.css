@@ -32,3 +32,7 @@
     width : 200px !important;
     text-align: center;
 }
+
+.mapboxgl-marker {
+    width: 50px;
+}
