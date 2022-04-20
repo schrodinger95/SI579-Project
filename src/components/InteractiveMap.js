@@ -85,7 +85,7 @@ const InteractiveMap = (props) => {
                 'layout': {
                     'icon-image': '{icon}',
                     'icon-allow-overlap': true,
-                    'icon-size': 0.2
+                    'icon-size': 0.18
                 }
             });
 
